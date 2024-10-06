@@ -14,13 +14,5 @@ namespace MovieList.Controllers
             context = ctx;
         }
 
-        public IActionResult Index()
-        {
-            var movies = context.Movies
-                .Include(m => m.Genre)
-                .OrderBy(m => m.Name)
-                .ToList();
-            return View(movies);
-        }
     }
 }

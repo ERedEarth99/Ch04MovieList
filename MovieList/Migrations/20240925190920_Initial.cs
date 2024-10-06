@@ -6,6 +6,11 @@ namespace MovieList.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AddColumn<string>(
+                name:"GenreID",
+                table:"Movies",
+                nullable: false,
+                defaultValue:"");
             migrationBuilder.CreateTable(
                 name: "Genres",
                 columns: table => new
@@ -29,8 +34,7 @@ namespace MovieList.Migrations
                     Rating = table.Column<int>(nullable: false),
                     GenreId = table.Column<string>(nullable: false)
                 },
-                constraints: table =>
-                {
+                constraints: table => {
                     table.PrimaryKey("PK_Movies", x => x.MovieId);
                     table.ForeignKey(
                         name: "FK_Movies_Genres_GenreId",
@@ -53,6 +57,13 @@ namespace MovieList.Migrations
                     { "R", "RomCom" },
                     { "S", "SciFi" }
                 });
+            migrationBuilder.UpdateData(
+                table: "Movies",
+                keyColumn: "MovieID",
+                keyValue: 1,
+                column: "GenreID",
+                value: "D"
+                );
 
             migrationBuilder.InsertData(
                 table: "Movies",
@@ -73,6 +84,14 @@ namespace MovieList.Migrations
                 name: "IX_Movies_GenreId",
                 table: "Movies",
                 column: "GenreId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Movies_Genres_GenreID",
+                table: "Movies",
+                column: "GenreId",
+                principalTable: "Genres",
+                principalColumn: "GenreID",
+                onDelete: ReferentialAction.Cascade);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

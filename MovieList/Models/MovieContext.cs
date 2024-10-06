@@ -19,28 +19,28 @@ namespace MovieList.Models
                     Name = "Casablanca",
                     Year = 1943,
                     Rating = 5,
-                    GenreId = "D"
+                    GenreID = "D"
                 },
                 new Movie {
                     MovieId = 2,
                     Name = "Wonder Woman",
                     Year = 2017,
-                    Rating = 3,
-                    GenreId = "A"
+                    Rating = 3,         
+                    GenreID = "A"
                 },
                 new Movie {
                     MovieId = 3,
                     Name = "Moonstruck",
                     Year = 1988,
                     Rating = 4,
-                    GenreId = "R"
+                    GenreID = "R"
                 },
                 new Movie {
                     MovieId = 4,
                     Name = "Godzilla Minus 1",
                     Year = 2024,
                     Rating = 5,
-                    GenreId = "H"
+                    GenreID = "H"
                 },
                 new Movie
                 {
@@ -48,7 +48,7 @@ namespace MovieList.Models
                     Name = "Guardains of the Galaxy Vol. 3",
                     Year = 2024,
                     Rating = 5,
-                    GenreId = "S"
+                    GenreID = "S"
                 }
             );
             modelBuilder.Entity<Genre>().HasData(
